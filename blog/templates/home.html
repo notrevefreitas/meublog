@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{%  block content %}
+    <div class ="row">
+
+        <div class="col-3"></div>
+
+            <div class="col-12 col-md-6 mt-5">
+
+                {% for postagem in postagens %}
+                <div class="card bg-whiter rounded mt-3" >
+                    <div class="card-body">
+                        <h5 class="card-title">{{postagem.titulo}}</h5>
+                        <p><i class = "fa fa-calendar">{{postagem.data_criacao}} - Autor:
+                            {{postagem.autor.username}}</i></p>
+                        <p class="card-text mt-2">{{postagem.texto}}</p>
+                        <a href="{% url 'detalhe_postagem' pk=postagem.pk %}" class="btn btn-primary">Saber Mais </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        <div class="col-3"></div>
+    </div>
+
+{%endblock%}
